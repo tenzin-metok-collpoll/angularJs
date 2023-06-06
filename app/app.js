@@ -1,7 +1,22 @@
 // creating a module
-var myApp=angular.module('myApp',[]);
+var myApp=angular.module('myApp',['ngRoute']);
+
+myApp.config(['$routeProvider', function($routeProvider){
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html'
+        })
+        .when('/directory',{
+            templateUrl: 'views/directory.html',
+            controller: 'myCtrl'
+        })
+        .otherwise({
+            redirectTo: '/home'
+        });
+}]);
+
 // creating a controller
-myApp.controller("myCtrl",function($scope){
+myApp.controller("myCtrl",['$scope', '$http', function($scope,$http){
 
 
     $scope.removeArr=function(i){
@@ -20,32 +35,9 @@ myApp.controller("myCtrl",function($scope){
     $scope.newArr.age="";
     $scope.newArr.fees="";
 
-    }
-    $scope.arr=[
-        {
-            name:"dasdsd",
-            age:22,
-            fees:2324,
-            available:true
-        },
-        {
-            name:"fdgdfs",
-            age:23,
-            fees:4532,
-            available:true
-        },
-        {
-            name:"nbcvcv",
-            age:52,
-            fees:5435,
-            available:false
-        },
-        {
-            name:"adsfad",
-            age:25,
-            fees:7656,
-            available:true
-        }
-        
-    ];
-})
+    };
+    $http.get('data/arr.json').then(function(data){
+        console.log('data: ', data);
+        $scope.arr = data.data;
+    });
+}]);

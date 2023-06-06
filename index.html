@@ -3,29 +3,11 @@
         <title>angular playlist</title>
         <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js" integrity="sha512-y1qD3hz/IAf8W4+/UMLZ+CN6LIoUGi7srWJ3r1R17Hid8x0yXe+1B5ZelkaL1Mjzedzu0Cg3HBvDG02SAgSzBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="app/app.js"></script>
     </head>
     <body>
         <header ng-include="'header.html'"></header>
-        <div class="content">
-        <div ng-controller="myCtrl">
-            <button ng-click="order='name'">order by name</button>
-            <button ng-click="order='age'">order by age</button>
-            <input type="text" ng-model="search"> 
-            <ul>
-                <li ng-repeat="i in arr | orderBy : order| filter: search"   >
-                    <h3>{{i.name}}-{{i.fees | currency}}</h3>
-                    <div class="remove" ng-click="removeArr(i)">X</div>
-                <span>{{i.age}} age</span>
-            </li>
-            </ul>
-            <form ng-submit="addArr()">
-                <input type="text" placeholder="name" ng-model="newArr.name" />
-                <input type="text" placeholder="age" ng-model="newArr.age" />
-                <input type="text" placeholder="fees" ng-model="newArr.fees" />
-                <input type="submit" value="Add new arr" />
-            </form>
-        </div>
-        </div>
+        <main ng-view></main>
     </body>
 </html> 

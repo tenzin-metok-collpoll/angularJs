@@ -1,0 +1,19 @@
+<div class="content">
+        <button ng-click="order='name'">order by name</button>
+        <button ng-click="order='age'">order by age</button>
+        <input type="text" ng-model="search"> 
+        <ul>
+            <li ng-repeat="i in arr | orderBy : order | filter: search"   >
+                <h3>{{i.name}}-{{i.fees | currency}}</h3>
+                <div class="remove" ng-click="removeArr(i)">X</div>
+            <span>{{i.age}} age</span>
+        </li>
+        </ul>
+        <form ng-submit="addArr()">
+            <input type="text" placeholder="name" ng-model="newArr.name" />
+            <input type="text" placeholder="age" ng-model="newArr.age" />
+            <input type="text" placeholder="fees" ng-model="newArr.fees" />
+            <input type="submit" value="Add new arr" />
+        </form>
+
+    </div>
