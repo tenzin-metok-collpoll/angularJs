@@ -9,12 +9,16 @@
         <header ng-include="'header.html'"></header>
         <div class="content">
         <div ng-controller="myCtrl">
+            <button ng-click="order='name'">order by name</button>
+            <button ng-click="order='age'">order by age</button>
             <input type="text" ng-model="search"> 
             <ul>
-                <li ng-repeat="i in arr | orderBy : 'name'| filter: search"  ng-show="i.available">
-                    {{i.name}}-{{i.fees | currency}}</li>
+                <li ng-repeat="i in arr | orderBy : order| filter: search"   >
+                    <h3>{{i.name}}-{{i.fees | currency}}</h3>
+                <span>{{i.age}} age</span>
+            </li>
             </ul>
         </div>
         </div>
     </body>
-</html>
+</html> 
