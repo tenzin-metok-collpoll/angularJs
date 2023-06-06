@@ -6,4 +6,5 @@ myApp.controller("myCtrl",function($scope){
     $scope.handleClick=function(){
         alert("you clicked me!!");
     }
+    $scope.arr=['aaa','bbb','ccc','ddd'];
 })
