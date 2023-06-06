@@ -1,0 +1,14 @@
+<html lang="en" ng-app>
+    <head>
+        <title>angular playlist</title>
+        <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+    <body ng-init="arr=['a','b','c','d']">
+        <input type="text" ng-model="favColor" placeholder="Enter your fav color" />
+        <ul>
+            <li ng-repeat="i in arr">{{i}}</li>
+        </ul>
+
+    </body>
+</html>
