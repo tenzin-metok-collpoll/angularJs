@@ -19,6 +19,12 @@
                 <span>{{i.age}} age</span>
             </li>
             </ul>
+            <form ng-submit="addArr()">
+                <input type="text" placeholder="name" ng-model="newArr.name" />
+                <input type="text" placeholder="age" ng-model="newArr.age" />
+                <input type="text" placeholder="fees" ng-model="newArr.fees" />
+                <input type="submit" value="Add new arr" />
+            </form>
         </div>
         </div>
     </body>
