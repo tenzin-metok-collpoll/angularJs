@@ -2,7 +2,7 @@
         <button ng-click="order='name'">order by name</button>
         <button ng-click="order='age'">order by age</button>
         <input type="text" ng-model="search"> 
-        <ul>
+        <ul id="arr-list">
             <li ng-repeat="i in arr | orderBy : order | filter: search"   >
                 <h3>{{i.name}}-{{i.fees | currency}}</h3>
                 <div class="remove" ng-click="removeArr(i)">X</div>
@@ -15,5 +15,5 @@
             <input type="text" placeholder="fees" ng-model="newArr.fees" />
             <input type="submit" value="Add new arr" />
         </form>
-
+        <a href="" ng-click="removeAll()">Remove all the array</a>
     </div>

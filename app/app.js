@@ -1,5 +1,5 @@
 // creating a module
-var myApp=angular.module('myApp',['ngRoute']);
+var myApp=angular.module('myApp',['ngRoute','ngAnimate']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -25,6 +25,8 @@ myApp.directive('randomArr',[function(){
         },
         // template: '{{arr[random].name}}',
         templateUrl: 'views/random.html',
+        transclude: true,
+        replace:true,
         controller: function($scope){
             $scope.random = Math.floor(Math.random()*4);
         }
@@ -52,6 +54,10 @@ myApp.controller("myCtrl",['$scope', '$http', function($scope,$http){
     $scope.newArr.fees="";
 
     };
+
+    $scope.removeAll=function(){
+        $scope.arr=[];
+    }
     $http.get('data/arr.json').then(function(data){
         console.log('data: ', data);
         $scope.arr = data.data;

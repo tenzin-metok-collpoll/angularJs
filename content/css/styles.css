@@ -53,6 +53,7 @@ body{
   
   .content{
     padding: 20px;
+    overflow: hidden;
   }
   
   .content button,
@@ -118,3 +119,39 @@ body{
     cursor: pointer;
     margin-left: 10px;
   }
+ /* ANIMATION*/
+  /* The starting CSS styles for the enter animation */
+main.ng-enter {
+    transition:0.5s linear all;
+    opacity:0;
+  }
+  
+  /* The finishing CSS styles for the enter animation */
+main.ng-enter.ng-enter-active {
+    opacity:1;
+  }
+
+#arr-list li.ng-enter {
+    transition:0.5s linear all;
+    opacity:0;
+    transform: translateY(30px);
+}
+
+#arr-list li.ng-enter.ng-enter-active {
+    opacity:1;
+    transform: translateY(0);
+}
+#arr-list li.ng-leave {
+    transition:0.5s linear all;
+    opacity:1;
+    transform: translateX(0px);
+}
+
+#arr-list li.ng-leave.ng-leave-active {
+    opacity:0;
+    transform: translateX(-100%);
+}
+#arr-list li.ng-leave-stagger{
+    transition-delay: 0.2s;
+    transition-duration: 0;
+}
