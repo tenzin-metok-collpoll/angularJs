@@ -7,10 +7,10 @@
     </head>
     <body>
         <div ng-controller="myCtrl">
-            <p>{{message}}</p>
-            <button ng-click="handleClick()">click here</button>
+            <input type="text" ng-model="search"> 
             <ul>
-                <li ng-repeat="i in arr">{{i}}</li>
+                <li ng-repeat="i in arr | orderBy : 'name'| filter: search">
+                    {{i.name}}-{{i.fees | currency}}</li>
             </ul>
         </div>
     </body>
