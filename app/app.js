@@ -4,7 +4,8 @@ var myApp=angular.module('myApp',['ngRoute']);
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/home', {
-            templateUrl: 'views/home.html'
+            templateUrl: 'views/home.html',
+            controller: 'myCtrl'
         })
         .when('/directory',{
             templateUrl: 'views/directory.html',
@@ -13,6 +14,21 @@ myApp.config(['$routeProvider', function($routeProvider){
         .otherwise({
             redirectTo: '/home'
         });
+}]);
+
+myApp.directive('randomArr',[function(){
+    return { 
+        restrict: 'E',
+        scope: {
+            arr: '=',
+            title: '='
+        },
+        // template: '{{arr[random].name}}',
+        templateUrl: 'views/random.html',
+        controller: function($scope){
+            $scope.random = Math.floor(Math.random()*4);
+        }
+    }
 }]);
 
 // creating a controller
