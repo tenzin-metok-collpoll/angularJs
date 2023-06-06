@@ -6,22 +6,26 @@ myApp.controller("myCtrl",function($scope){
         {
             name:"dasdsd",
             age:22,
-            fees:2324
+            fees:2324,
+            available:true
         },
         {
             name:"fdgdfs",
             age:23,
-            fees:4532
+            fees:4532,
+            available:true
         },
         {
             name:"nbcvcv",
             age:52,
-            fees:5435
+            fees:5435,
+            available:false
         },
         {
             name:"adsfad",
             age:25,
-            fees:7656
+            fees:7656,
+            available:true
         }
         
     ];

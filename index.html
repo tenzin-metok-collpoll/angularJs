@@ -7,12 +7,14 @@
     </head>
     <body>
         <header ng-include="'header.html'"></header>
+        <div class="content">
         <div ng-controller="myCtrl">
             <input type="text" ng-model="search"> 
             <ul>
-                <li ng-repeat="i in arr | orderBy : 'name'| filter: search">
+                <li ng-repeat="i in arr | orderBy : 'name'| filter: search"  ng-show="i.available">
                     {{i.name}}-{{i.fees | currency}}</li>
             </ul>
+        </div>
         </div>
     </body>
 </html>
