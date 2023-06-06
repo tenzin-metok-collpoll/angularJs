@@ -2,6 +2,12 @@
 var myApp=angular.module('myApp',[]);
 // creating a controller
 myApp.controller("myCtrl",function($scope){
+
+
+    $scope.removeArr=function(i){
+        var removedArr=$scope.arr.indexOf(i);
+        $scope.arr.splice(removedArr,1);
+    }
     $scope.arr=[
         {
             name:"dasdsd",
